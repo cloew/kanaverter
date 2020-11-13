@@ -1,10 +1,10 @@
-from .kana_sentence import KanaSentence
+from .grouped_parser import GroupedParser
 
 import argparse
 import pyperclip
 
 def run(args):
     """ Convert the kana sentence """
-    sentence = KanaSentence.parse(' '.join(args))
+    sentence = GroupedParser().parse(' '.join(args))
     pyperclip.copy(str(sentence))
     print('Sentence saved to Clipboard')
