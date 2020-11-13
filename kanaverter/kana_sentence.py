@@ -1,4 +1,5 @@
 from .kana_part import KanaPart
+from .utils import is_kanji
 
 def split_sentence(sentence):
     """ Split the sentence into the different parts """
@@ -24,10 +25,6 @@ def split_part_with_kanji(partWithKanji):
             indexToSplitAt = i
             break
     return KanaPart(kana=partWithKanji[i:], kanji=partWithKanji[:i])
-
-def is_kanji(character):
-    """ Return if the character is a kanji character """
-    return 0x4E00 <= ord(character) <= 0x9FBF
     
 class KanaSentence:
     """ Represents a sentence with kana and kanji """
