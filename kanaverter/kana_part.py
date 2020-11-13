@@ -6,6 +6,3 @@ class KanaPart:
         """ Initialize the part with its kana and optionally the kanji as well """
         self.kana = kana
         self.kanji = kanji
-
-    def __str__(self):
-        return self.kanji or self.kana
