@@ -1,6 +1,5 @@
 from .grouped_parser import GroupedParser
-from .furigana_formatter import FuriganaFormatter
-from .simple_formatter import SimpleFormatter
+from .formatters import FuriganaFormatter, SimpleFormatter
 
 import argparse
 import pyperclip
@@ -8,7 +7,7 @@ import pyperclip
 def run(args):
     """ Convert the kana sentence """
     parser = GroupedParser()
-    formatter = FuriganaFormatter()
+    formatter = SimpleFormatter()
     
     sentence = parser.parse(' '.join(args))
     formatted_sentence = formatter.format(sentence)
