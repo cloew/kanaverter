@@ -5,7 +5,6 @@ import pyperclip
 
 def run(args):
     """ Convert the kana sentence """
-    # print("Running...:", args)
-    
     sentence = KanaSentence.parse(' '.join(args))
     pyperclip.copy(str(sentence))
+    print('Sentence saved to Clipboard')
