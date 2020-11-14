@@ -1,5 +1,5 @@
 from .formatters import FuriganaFormatter, SimpleFormatter
-from .parsers import GroupedParser
+from .parsers import GroupedParser, ReadingsAfterParser
 
 import argparse
 import pyperclip
@@ -14,7 +14,7 @@ def run(args):
 
     formatter = SimpleFormatter() if parsed_args.simple else FuriganaFormatter()
     
-    parse_and_format(GroupedParser(), formatter, parsed_args.sentence)
+    parse_and_format(ReadingsAfterParser(), formatter, parsed_args.sentence)
     
 def parse_and_format(parser, formatter, sentence_text):
     """ Parse and format the sentence text with the given parser and formatter """
