@@ -1,5 +1,5 @@
-from .grouped_parser import GroupedParser
 from .formatters import FuriganaFormatter, SimpleFormatter
+from .parsers import GroupedParser
 
 import argparse
 import pyperclip

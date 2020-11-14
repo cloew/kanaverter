@@ -1,6 +1,6 @@
-from .kana_part import KanaPart
-from .kana_sentence import KanaSentence
-from .utils import is_kanji
+from ..kana_part import KanaPart
+from ..kana_sentence import KanaSentence
+from ..utils import is_kanji
 
 class GroupedParser:
     """ Parser that expects the kanji and its readings to be grouped together with separator characters """
