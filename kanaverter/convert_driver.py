@@ -9,7 +9,7 @@ def run(args):
     argparser = argparse.ArgumentParser(description="Convert between various formats of sentences with Kanji & Kana")
     argparser.add_argument('sentence')
     argparser.add_argument('--simple', '-s', action='store_true', help="Convert output to a simple format without readings for kanji")
-    argparser.add_argument('--parser', '-p', type=ParserTypes, choices=ParserTypes, help="Parser to use to read the sentence")
+    argparser.add_argument('--parser', '-p', type=ParserTypes, choices=ParserTypes, required=True, help="Parser to use to read the sentence")
 
     parsed_args = argparser.parse_args(args)
 
