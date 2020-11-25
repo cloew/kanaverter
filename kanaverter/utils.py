@@ -12,6 +12,21 @@ def split_sentence_into_parts(sentence, readings):
     parsing_kanji_part = None
     next_reading_index = 0
     
+    parts = parse_simple_sentence_into_parts(sentence)
+    
+    for part in parts:
+        if part.kanji:
+            part.kana = readings[next_reading_index]
+            next_reading_index += 1
+
+    return parts
+    
+def parse_simple_sentence_into_parts(sentence):
+    """ Parses the given simple sentence into parts """
+    parts = []
+    current_part = ''
+    parsing_kanji_part = None
+    
     for character in sentence:
         current_char_is_kanji = is_kanji(character)
         if parsing_kanji_part is None:
@@ -22,25 +37,24 @@ def split_sentence_into_parts(sentence, readings):
             current_part += character
         else:
             # The current part has ended and we need to build the part
-            kana_part = build_kana_part(current_part, parsing_kanji_part, readings, next_reading_index)
-            if kana_part.kanji:
-                next_reading_index += 1
+            kana_part = build_kana_part(current_part, parsing_kanji_part)
 
             parts.append(kana_part)
             current_part = character
             parsing_kanji_part = current_char_is_kanji
             
     # Build last kana part
-    kana_part = build_kana_part(current_part, parsing_kanji_part, readings, next_reading_index)
+    kana_part = build_kana_part(current_part, parsing_kanji_part)
     parts.append(kana_part)
-
+    
     return parts
     
-def build_kana_part(current_part, parsing_kanji_part, readings, next_reading_index):
+    
+def build_kana_part(current_part, parsing_kanji_part):
     """ Build the proper kana part based on the current processing state """
     part = None
     if parsing_kanji_part:
-        part = KanaPart(kanji=current_part, kana=readings[next_reading_index])
+        part = KanaPart(kanji=current_part)
     else:
         part = KanaPart(kana=current_part)
     
