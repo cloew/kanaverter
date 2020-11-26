@@ -1,11 +1,13 @@
 from .grouped_parser import GroupedParser
 from .jisho_parser import JishoParser
+from .my_format_parser import MyFormatParser
 from .parser_types import ParserTypes
 from .readings_after_parser import ReadingsAfterParser
 
 type_to_parser_class = {
     ParserTypes.group: GroupedParser,
     ParserTypes.jisho: JishoParser,
+    ParserTypes.mine: MyFormatParser,
     ParserTypes.readings_after: ReadingsAfterParser,
 }
 
