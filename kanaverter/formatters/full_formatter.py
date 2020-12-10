@@ -6,8 +6,7 @@ class FullFormatter:
         """ Format the given KanaSentence """
         simple_sentence = self.get_simple_sentence(sentence)
         kana_sentence = self.get_kana_sentence(sentence)
-        romaji_sentence = self.get_romaji_sentence(sentence)
-        return '\n'.join([simple_sentence, kana_sentence, romaji_sentence])
+        return '\n'.join([simple_sentence, kana_sentence])
         
     def get_simple_sentence(self, sentence):
         """ Format the given KanaSentence into a simple sentence """
