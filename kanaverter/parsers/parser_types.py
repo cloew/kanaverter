@@ -5,4 +5,5 @@ class ParserTypes(Enum):
     jisho = 'jisho'
     mine = 'mine'
     readings_after = 'after'
+    ruby = 'ruby'
     

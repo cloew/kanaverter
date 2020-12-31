@@ -3,12 +3,14 @@ from .jisho_parser import JishoParser
 from .my_format_parser import MyFormatParser
 from .parser_types import ParserTypes
 from .readings_after_parser import ReadingsAfterParser
+from .ruby_parser import RubyParser
 
 type_to_parser_class = {
     ParserTypes.group: GroupedParser,
     ParserTypes.jisho: JishoParser,
     ParserTypes.mine: MyFormatParser,
     ParserTypes.readings_after: ReadingsAfterParser,
+    ParserTypes.ruby: RubyParser,
 }
 
 def build_parser_for_type(parser_type):
